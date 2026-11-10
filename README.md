@@ -1,8 +1,8 @@
 # Good To Talk 🛡️🧼
 
-**An open-source AI Agent Skill for anyone who wants to filter hurtful messages into useful information — without turning insults into "constructive criticism."**
+**An open-source AI Agent Skill that transforms harsh words into warm, empathetic messages — and extracts actionable criticism separately.**
 
-**상처 주는 말은 걸러내고, 유효한 피드백과 다음 행동만 건지는 멘탈 보호형 AI Agent Skill.**
+**독성 말투를 공감부터 시작하는 다정한 대사로 바꾸고, 유효한 비판은 따로 뽑아주는 AI Agent Skill.**
 
 [English](#what-it-does) · [한국어](#한국어) · [Examples / 사용 예시](./examples/demo.md) · [Agent install prompt](./AGENT_INSTALL.md) · [SKILL.md](./SKILL.md)
 
@@ -13,7 +13,7 @@
 | Feature | What you get |
 | --- | --- |
 | 🛡️ **Emotional safety first** | Filters out mockery and unsupported value judgments instead of rephrasing them as milder insults. |
-| 🧼 **Safe message translation** | Delivers concrete situations, requests and next steps in calm, readable language. |
+| 🧼 **Empathy-first translation** | Rewrites the sender's words as direct, kind, lively speech: warm acknowledgment first, gentle collaborative phrasing second — not an AI-generated summary. |
 | 🔎 **Valid criticism extractor** | Separates specific issues, **reported but unverified claims**, missing evidence and actions. Says when there is no actionable feedback. |
 | 🧠 **Playful possible concerns** | Optional, clearly speculative interpretations for a lighter perspective — not mind-reading. |
 | ✉️ **Firm reply rewriting** | Turns your own frustrated draft into a professional message without surrendering your position. |
@@ -22,11 +22,11 @@
 
 ### The key change in v2
 
-A polite-looking sentence can still hurt. The skill now **does not echo negative judgments if they carry no useful evidence**. It gives you the useful signal instead.
+A polite-looking sentence can still hurt. Good To Talk now makes the **sender sound genuinely kind**: acknowledge effort or thank the recipient, then phrase the actual concern as a gentle suggestion. **The translation is dialogue, not analysis**; substantive issues are listed separately under 🔎 유효한 비판. Unsupported insults are never treated as proven defects.
 
 - **Concrete bug, risk, metric or request?** Preserve it, mark what is not verified, and extract the next step.
 - **Vague complaint?** Acknowledge there was a report, but don't promote it to a proven defect. Ask for reproduction details.
-- **Mockery without substance?** No invented criticism. Say there is nothing actionable to address.
+- **Mockery without substance?** Rewrite the attack as a softer subjective reaction or collaborative suggestion. Note that no actionable criticism was provided only in 🔎 유효한 비판.
 - **Urgent production/security issue?** Keep it urgent; do not soften away real risk.
 
 ## Demo 1 — Insult without useful feedback
@@ -37,7 +37,7 @@ A polite-looking sentence can still hurt. The skill now **does not echo negative
 
 **🧼 말랑말랑 번역 / Gentle translation**
 
-> 이번 메시지에는 구체적인 수정 사항이나 개선 요청이 없어요. 지금 바로 처리할 작업은 없습니다. 📭
+> 공개하시느라 고생 많으셨어요! 제가 기대했던 방향과는 조금 다르지만, 어떤 점을 이야기하면 좋을지는 조금 더 생각해볼게요! 🥺
 
 **🔎 유효한 비판 / Valid criticism**
 
@@ -53,7 +53,7 @@ The skill **does not** invent "your project is not ready to be open source" as a
 
 **🧼 말랑말랑 번역 / Gentle translation**
 
-> 향후 확장 시 변경 범위를 확인하고 싶다는 요청이에요. 설계 당시 고려된 요구사항이나 제약조건을 공유해 주시면 검토에 도움이 되겠습니다.
+> 설계하시느라 고생 많으셨어요! 나중에 기능이 확장될 때를 대비해 설계 당시 고려하신 점을 공유해 주실 수 있을까요? 함께 살펴보면 좋겠어요!
 
 **🔎 유효한 비판 / Valid criticism**
 
@@ -65,7 +65,17 @@ The skill **does not** invent "your project is not ready to be open source" as a
 
 > “혹시 이거 수정 범위가 커지는 작업일까요? 먼저 지도를 좀 보고 싶어요… 🗺️”
 
-See [additional cases](./examples/demo.md), including vague complaints, real performance feedback, outgoing replies and neutral messages.
+**Another example (vague complaint)**
+
+Original: “하... 이 코드 못쓰겠네.”
+
+🧼 Gentle translation:
+
+> 고생하셨어요! 다만 지금 코드에서 조금 더 같이 디벨롭해 보면 좋을 것 같아요! 🥺
+
+🔎 Valid criticism: Someone expressed difficulty using the code but gave no reproducible symptoms. Request details; do not assume a confirmed bug.
+
+See [additional cases](./examples/demo.md), including real performance feedback, outgoing replies, urgent incidents and neutral messages.
 
 ## Install
 
@@ -123,8 +133,8 @@ Filter the insults from this PR review and extract actionable criticism:
 
 ## Principles
 
-1. **Protect the reader without lying.** No manufactured reassurance or fake positivity.
-2. **Don't launder insults.** Unsupported mockery never becomes an authoritative negative assessment.
+1. **Lead with contextual empathy, not empty flattery.** Rewrite into the sender’s warm, friendly voice without fabricating verified claims.
+2. **Translate rather than explain.** The 🧼 section must be direct speech; 🔎 separately handles critical analysis. Unsupported mockery never becomes an authoritative negative assessment.
 3. **Preserve valid technical signals.** Keep precise facts, requests, numbers, deadlines and risks, distinguishing verified from reported.
 4. **Separate comments from evidence.** “Someone disliked this” ≠ “This is defective.”
 5. **No mind-reading.** Inner thoughts are explicitly speculative, humorous interpretations, not facts.
@@ -137,9 +147,9 @@ Filter the insults from this PR review and extract actionable criticism:
 
 기존에는 "이딴 것도 오픈소스라고 만듦?"이라는 조롱을 "공개하기에는 아쉬운 점이 있네요"처럼 바꾸면서, **근거 없는 공격을 실제 품질 평가처럼 전달하는 문제**가 있었습니다.
 
-v2에서는 이를 바꿨습니다.
+v2.2에서는 이를 바꾸고 **공감 → 말랑말랑 의역 → 함께 해결하자는 제안**을 기본 말투로 추가했습니다. 단, 구체적인 사실이나 일정·업무 약속을 꾸며내지 않습니다.
 
-- **🧼 말랑말랑 번역:** 상처 주는 평가를 되풀이하지 않고, 실제 상황·요청·확인 사항만 편안하게 전달
+- **🧼 말랑말랑 번역:** 원래 발신자가 **“고생하셨어요!”, “감사합니다!”**처럼 먼저 공감하고, 다정하고 협력적인 말투로 직접 이야기하는 것처럼 의역합니다. 분석이나 설명이 아니라 **상대방의 대사**로 출력합니다.
 - **🔎 유효한 비판:** 객관적 정보, 아직 검증되지 않은 주장, 필요한 추가 정보와 다음 행동을 구분. 구체적인 근거가 없으면 **"현재 반영할 피드백 없음"**
 - **🧠 본심 추측:** 실제 마음을 안다고 주장하지 않는, 선택적인 유쾌한 해석
 - **✉️ 답장 순화:** 내가 화가 나서 쓴 메일도 입장을 유지하면서 업무적으로 작성
