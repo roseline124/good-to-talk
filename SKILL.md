@@ -3,13 +3,13 @@ name: good-to-talk
 description: Protect readers from hurtful, sarcastic, passive-aggressive workplace messages by extracting actionable information without laundering insults into valid criticism. Identify evidence-backed feedback separately and rewrite frustrated outgoing replies professionally. Korean-first, English-supported.
 license: MIT
 metadata:
-  version: "2.0.0"
+  version: "2.1.0"
   language: "ko"
 ---
 
 # Good To Talk 🛡️🧼
 
-**Core promise:** Deliver information without unnecessarily delivering hostility. For received messages, mental protection comes first; for outgoing messages, keep the user's substantive position while making it suitable to send.
+**Core promise:** Turn harsh messages into something the original sender could have said gently, then separately extract useful feedback. For received messages, mental protection comes first; for outgoing messages, preserve the user's substantive position in a sendable draft.
 
 This is not a tool for turning every insult into a gentle-sounding insult. It is a filter that separates **reported facts, actionable requests, unverified claims, unsupported judgments, and attacks**.
 
@@ -42,7 +42,9 @@ Internally classify **each claim** before writing:
 1. **Do not echo harm by default.** Do not quote or restate insults, negative labels, competence attacks, or contempt in the translated message. The user's pasted text already contains the original; only include the original when explicitly requested.
 2. **Don't launder contempt into factual evaluation.** "이딴 것도 오픈소스라고 만듦?" is **not** evidence that "오픈소스로 공개하기에는 부족하다." No concrete complaint = no actionable criticism.
 3. **Keep concrete information.** Preserve explicit bugs, measurements, commands, error messages, identifiers, requested changes, uncertainty, dates, deadlines, obligations and safety-critical urgency. Label unverified claims as **reported** rather than facts.
-4. **Lead with what the reader can do, not how the sender feels.** A translation can summarize "추가 확인 사항 없음" or "재현 정보 요청 필요" without repeating disapproval.
+4. **The translation must be a translation, NOT a summary or explanation.** Write as the **original sender speaking directly** in the first person ("저는", "제가", "부탁드려요", or implied first person). Convert an insult into a subjective, softened expression while retaining any explicit request, concern, urgency or observable issue. Never write in the voice of an AI commentator, mediator or analyst. Do not say "~라는 메시지예요", "~라고 보고했어요", "~한 요청이에요", "~확인하면 됩니다", "다음 단계를 정할 수 있어요", or "지금 바로 처리할 작업은 없습니다" in the translation. Put interpretation, verification notes and suggested actions only under 🔎 유효한 비판.
+   - **Speech test:** Could the sender naturally copy the output and send it as their own words? If not, rewrite it.
+   - **Protective paraphrase tradeoff:** For pure contempt with no concrete issue, softly convey a subjective negative reaction without claiming that the target truly is defective. Do not falsely imply curiosity, an intent to investigate, a future promise, or a technical concern not present in the original. The separate critique section should state that nothing actionable was supplied.
 5. **Always include 🔎 유효한 비판.** Extract only substantively useful content and distinguish:
    - **확인된 사실** (only when established by the text or evidence), 
    - **제기된 문제/가설** (when asserted but not verified),
@@ -60,7 +62,11 @@ Internally classify **each claim** before writing:
 Do not reproduce the original insulting sentence unless the user asks.
 
 ### 🧼 말랑말랑 번역
-[1–3 brief, emotionally safe sentences stating any *actionable request, reported situation, or next step*, without importing the sender's judgment. For a bare insult, a neutral no-action message is appropriate.]
+> [1–3 short sentences of **direct speech in the sender's voice**, as though they chose to be kind. Preserve original meaning and concrete questions, but avoid insults and unsupported factual conclusions. A subjective preference or concern is safer than calling someone else's work bad. Do not describe the message, evaluate evidence or instruct the reader what to do in this section.]
+
+**Mandatory voice check:** The content inside the quote must sound like the sender talking to the recipient, NOT a narrator talking about the sender. For example, "설계 당시 고려하신 사항을 알려주실 수 있을까요?" is a translation; "설계 배경에 대한 문의가 들어왔습니다" is an explanation and belongs only under 🔎 유효한 비판.
+
+**Examples of forbidden translation phrasing:** "이번 메시지에는...", "상대방은 ...", "...라는 요청이에요", "...라는 보고가 있어요", "... 확인하면 됩니다." These are allowed in the analysis section, never in the quoted translation.
 
 ### 🔎 유효한 비판
 - **확인된 정보:** [Only facts supported by provided text or proof; otherwise "아직 확인된 내용 없음"]
@@ -94,7 +100,7 @@ Do **not** claim to have sent the draft.
 **Input:** "이딴 것도 오픈소스라고 만듦? ㅋㅋ"
 
 **🧼 말랑말랑 번역**
-> 이번 메시지에는 구체적인 수정 사항이나 개선 요청이 없어요. 지금 바로 처리할 작업은 없습니다. 📭
+> 제 취향과는 조금 다른 프로젝트인 것 같아요. 구체적으로 어떤 부분을 개선하면 좋을지는 말씀드리지 못하겠어요.
 
 **🔎 유효한 비판**
 > 구체적인 근거 또는 개선 요청이 없어, 현재 반영할 피드백은 없습니다.
@@ -103,14 +109,14 @@ Do **not** claim to have sent the draft.
 > 업무적 가능성: 구체적인 의도는 알 수 없어요.
 > 유쾌한 의역: "버그 리포트를 열었는데 재현 방법 칸이 비어 있어요. 🐛"
 
-Do **not** rewrite this as "프로젝트 공개 수준이 부족합니다."
+Do **not** rewrite this as "프로젝트 공개 수준이 부족합니다." Also do not substitute narrator-style analysis for the translation. A softened subjective preference is possible; the comment does not establish project quality.
 
 ### 2. Vague usability complaint
 
 **Input:** "하... 이 코드 못쓰겠네."
 
 **🧼 말랑말랑 번역**
-> 사용 중 막힌 부분이 있었나 봐요. 어떤 환경에서 무엇이 작동하지 않았는지 확인되면 다음 단계를 정할 수 있어요. 🧩
+> 지금은 이 코드를 사용하기가 조금 어렵네요. 어떤 부분이 문제인지 구체적으로 말씀드리지는 못했어요. 🥺
 
 **🔎 유효한 비판**
 > 제기된 문제: 사용이 어렵다는 보고가 있지만 원인이나 재현 정보는 없습니다.
@@ -123,7 +129,7 @@ Do **not** claim "the code is unusable" as verified fact.
 **Input:** "아니 인덱스도 안 걸어놓고 이걸 운영에 올렸다고요? 조회가 4초씩 걸리는데 기본도 안 되어 있네요."
 
 **🧼 말랑말랑 번역**
-> 조회에 4초가 걸린다는 보고가 있어요. 인덱스 설정 여부와 실행 계획을 확인하면 성능 문제의 원인을 좁힐 수 있겠습니다.
+> 조회에 4초 정도 걸리는 점이 걱정돼요. 인덱스가 설정되어 있는지 확인해 주실 수 있을까요?
 
 **🔎 유효한 비판**
 - **확인된 정보:** 이 메시지에는 조회 시간이 4초라는 *보고*가 있습니다. 별도 측정 증거는 없습니다.
@@ -135,7 +141,7 @@ Do **not** claim "the code is unusable" as verified fact.
 **Input:** "확장성이 전혀 고려되지 않은 상태로 보입니다. 설계 단계에서 어떻게 고려되었는지 확인 부탁드립니다."
 
 **🧼 말랑말랑 번역**
-> 향후 확장 시 변경 범위를 확인하고 싶다는 요청이에요. 설계 당시 고려된 요구사항이나 제약조건을 공유해 주시면 검토에 도움이 되겠습니다.
+> 나중에 기능을 확장할 때 수정 범위가 커질까 봐 조금 걱정돼요. 설계 당시 어떤 점을 고려하셨는지 알려주실 수 있을까요?
 
 **🔎 유효한 비판**
 - **확인된 정보:** 설계 배경에 대한 문의가 들어왔습니다.
@@ -147,7 +153,7 @@ Do **not** claim "the code is unusable" as verified fact.
 **Input:** "주문 API 응답 시간이 4초로 측정됐습니다. 로그와 실행 계획을 확인해 주세요."
 
 **🧼 말랑말랑 번역**
-> 주문 API 응답 시간이 4초로 측정되었다고 공유받았습니다. 로그와 실행 계획을 확인하면 됩니다.
+> 주문 API 응답 시간이 4초로 측정됐어요. 로그와 실행 계획을 확인해 주실 수 있을까요?
 
 **🔎 유효한 비판**
 - **제기된 문제/요청:** 4초 응답 시간 보고, 로그 및 실행 계획 확인 요청.
@@ -160,7 +166,7 @@ This message was already professional. Do not fabricate toxicity.
 **Input:** "이렇게 일 처리할 거면 고객센터는 왜 운영하세요? 답변도 너무 느리네요. 월요일 오전에 문의했는데 수요일까지 답이 없었습니다."
 
 **🧼 말랑말랑 번역**
-> 월요일 오전에 접수된 문의에 수요일까지 답변을 받지 못했다는 내용이에요. 접수·처리 상태와 예상 답변 시점을 확인해 주세요.
+> 월요일 오전에 문의드렸는데 수요일까지 답변이 없어 답답했어요. 현재 처리 상태를 알려주실 수 있을까요?
 
 **🔎 유효한 비판**
 - **제기된 문제:** 월요일 오전 문의에 수요일까지 답변이 없었다는 보고(미검증).
