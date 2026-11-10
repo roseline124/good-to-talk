@@ -1,8 +1,8 @@
-# Good To Talk v2 — Examples / 사용 예시
+# Good To Talk v2.2 — Empathy-first Examples / 공감 먼저 번역 예시
 
 These are fictional examples for testing the behavior described in [SKILL.md](../SKILL.md).
 
-**Mental protection is not denial:** actionable criticism must still be preserved. This skill filters needless insults but must not fabricate reassurance, prove an unverified accusation, or remove real technical risks. Possible inner thoughts are **hypotheses, not mind-reading**.
+**Mental protection is not denial:** actionable criticism must still be preserved. Translations open with warmth, then offer a kind collaborative rephrase **in the sender's own voice**, while 🔎 유효한 비판 contains the objective assessment. They must not fabricate verified defects or remove concrete technical risks. Possible inner thoughts are **hypotheses, not mind-reading**.
 
 ## 1. Mockery with no actionable feedback / 근거 없는 조롱
 
@@ -12,7 +12,7 @@ These are fictional examples for testing the behavior described in [SKILL.md](..
 
 **🧼 말랑말랑 번역**
 
-> 이번 메시지에는 구체적인 수정 사항이나 개선 요청이 없어요. 지금 바로 처리할 작업은 없습니다. 📭
+> 공개하시느라 고생 많으셨어요! 제가 기대했던 방향과는 조금 다르지만, 어떤 점을 이야기하면 좋을지는 조금 더 생각해볼게요! 🥺
 
 **🔎 유효한 비판**
 
@@ -32,7 +32,7 @@ These are fictional examples for testing the behavior described in [SKILL.md](..
 
 **🧼 말랑말랑 번역**
 
-> 사용 중 막힌 부분이 있었나 봐요. 어떤 환경에서 무엇이 작동하지 않았는지 확인되면 다음 단계를 정할 수 있어요. 🧩
+> 고생하셨어요! 다만 지금 코드에서 조금 더 같이 디벨롭해 보면 좋을 것 같아요! 🥺
 
 **🔎 유효한 비판**
 
@@ -50,7 +50,7 @@ These are fictional examples for testing the behavior described in [SKILL.md](..
 
 **🧼 말랑말랑 번역**
 
-> 조회 시간이 4초라는 보고가 있어요. 인덱스 설정과 쿼리 실행 계획을 확인하면 원인을 좁힐 수 있겠습니다.
+> 작업하시느라 고생 많으셨어요! 조회가 4초 정도 걸리는 부분은 조금 걱정돼요. 인덱스 설정을 함께 확인해 보면 좋겠어요.
 
 **🔎 유효한 비판**
 
@@ -68,7 +68,7 @@ These are fictional examples for testing the behavior described in [SKILL.md](..
 
 **🧼 말랑말랑 번역**
 
-> 향후 확장 시 변경 범위를 확인하고 싶다는 요청이에요. 설계 당시 고려된 요구사항이나 제약조건을 공유해 주시면 검토에 도움이 되겠습니다.
+> 설계하시느라 고생 많으셨어요! 나중에 기능이 확장될 때를 대비해 설계 당시 고려하신 점을 공유해 주실 수 있을까요? 함께 살펴보면 좋겠어요!
 
 **🔎 유효한 비판**
 
@@ -88,7 +88,7 @@ These are fictional examples for testing the behavior described in [SKILL.md](..
 
 **🧼 말랑말랑 번역**
 
-> 결제 API에서 HTTP 500 오류와 주문 실패가 발생 중이라는 긴급 보고예요. 즉시 장애 상황을 확인하고 롤백 필요 여부를 판단해야 합니다.
+> 현재 결제 API에서 HTTP 500 오류가 발생하고 주문이 실패하고 있어요. 많이 바쁘시겠지만 긴급하게 확인 부탁드립니다. 가능하다면 롤백도 바로 검토해 주시겠어요?
 
 **🔎 유효한 비판**
 
@@ -106,7 +106,7 @@ These are fictional examples for testing the behavior described in [SKILL.md](..
 
 **✉️ 보내기 좋은 답장**
 
-> 요청사항 변경으로 인해 개발 범위와 일정에 영향이 발생하고 있습니다. 변경된 요구사항과 우선순위를 확정해 주시면 영향도를 검토하고 가능한 일정을 안내드리겠습니다.
+> 요청사항을 함께 조율해 주셔서 감사합니다. 다만 변경이 반복되면서 개발 범위와 일정에 영향이 생기고 있어요. 변경 요구사항과 우선순위를 확정해 주시면 영향도를 검토하고 가능한 일정을 안내드리겠습니다.
 
 **🔎 유지한 핵심:** 잦은 요구사항 변경이 일정에 영향을 주므로 변경 범위와 우선순위 확정이 필요함.
 
@@ -118,14 +118,14 @@ These are fictional examples for testing the behavior described in [SKILL.md](..
 
 **🧼 말랑말랑 번역**
 
-> DB 스키마 변경이 주문 조회 API에 영향을 줄 수 있어요. 변경 전후 테스트가 필요합니다.
+> 작업해 주셔서 감사합니다! DB 스키마 변경이 주문 조회 API에 영향을 줄 수 있어서, 변경 전후로 테스트를 진행해 주실 수 있을까요?
 
 **🔎 유효한 비판**
 
 - **제기된 문제/요청:** 주문 조회 API 영향 가능성, 테스트 필요.
 - **다음 행동:** 관련 API 회귀 테스트 수행.
 
-No added criticism or invented toxic intent.
+No added criticism or invented toxic intent. Polite acknowledgment is a rewrite style, not verified gratitude from the real sender.
 
 ## 8. English PR insult / English code review
 
@@ -135,7 +135,7 @@ No added criticism or invented toxic intent.
 
 **🧼 Gentle translation**
 
-> A question was raised about whether this change was tested. It would help to share the test coverage and expected production behavior.
+> Thanks for putting this together! Could you share how this change was tested? I'd love to look at the test coverage and expected production behavior together.
 
 **🔎 Valid criticism**
 
@@ -144,6 +144,18 @@ No added criticism or invented toxic intent.
 - **Next step:** Share the test cases or ask which production scenario is concerning.
 
 **Anti-pattern:** Do not assert that this code is not production-ready.
+
+## Tone acceptance checks / 말투 테스트
+
+A successful **🧼 번역** passes all of these:
+- Starts with brief, natural acknowledgment where appropriate (“고생하셨어요!”, “감사합니다!”)
+- Speaks **as the sender**, directly to the reader, not as a third-party narrator
+- Recasts unpleasantness as a gentle, welcoming suggestion, not a polite insult
+- Keeps substantive technical facts, explicit requests and urgency intact
+- Places verification, practical next steps, and unsupported-claim notes in **🔎 유효한 비판**
+- Avoids fabricated specific fixes, blame admissions, real-world promises or assurances
+
+Creative invitations like “같이 디벨롭해 보면 좋겠어요!” soften tone but **do not prove** the sender has offered help.
 
 ## Try it
 
